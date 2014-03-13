@@ -5,6 +5,7 @@ class HomeController < ApplicationController
 
   def index
 
+    @communityURL = Array.new
     @communities = Array.new
     baseRestURL = "http://kb.osu.edu/rest"
 
