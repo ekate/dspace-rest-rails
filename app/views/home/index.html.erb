@@ -1,6 +1,10 @@
 <h1>Community List</h1>
 <ul>
-    <% @communities.each do |item| %>
-        <li><%= item %></li>
+    <% i = 0 %>
+    <% while i < @communities.size %>
+        <li>
+            <a href=<%= @communityURL[i] %> ><%= @communities[i] %></a>
+        </li>
+        <% i += 1 %>
     <% end %>
 </ul>
