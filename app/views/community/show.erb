@@ -39,3 +39,12 @@
             <% end %>
         </ul>
 <% end %>
+
+<% unless @community.collections.nil? %>
+    <h2>Collections within this Community</h2>
+        <ul>
+            <% @community.collections.each do |c| %>
+            <li><%= c %></li>
+            <% end %>
+        </ul>
+<% end %>
