@@ -17,14 +17,11 @@ class HomeController < ApplicationController
     i = 0
     while i < jsonNode.size
 
+      @communityURL.push urlAppend(jsonNode[i]['id'].to_s, baseRestURL +"/communities")
       @communities.push jsonNode[i]['name']
       i += 1
 
     end
-
-    #@communities.to_crash
-
-    return @communities
 
   end
 
