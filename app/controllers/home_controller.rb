@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
 
+  # @return [@communities, @communityID]
   def index
 
     @communityID = Array.new
