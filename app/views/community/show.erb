@@ -1,4 +1,41 @@
-<h1>This is a Community</h1>
-<% @community.attributes.each do |c| %>
-<%= c %>
+<h1><%= @community.name %></h1>
+
+<% unless @community.copyrightText.size < 1 %>
+    <h2>Copyright Text</h2>
+    <p><% @community.copyrightText %></p>
+<% end %>
+
+<% unless @community.countItems.nil? %>
+    <h2>Count Items: <%= @community.countItems %></h2>
+<% end %>
+
+<% unless @community.handle.nil? %>
+    <p>Handle: <a href=<%= "http://hdl.handle.net/" + @community.handle %>><%= "http://hdl.handle.net/" + @community.handle %></a></p>
+<% end %>
+
+<% unless @community.introductoryText.nil? %>
+    <h2>Introductory Text</h2>
+        <p><%= strip_tags(@community.introductoryText) %></p>
+<% end %>
+
+<% unless @community.shortDescription.nil? %>
+    <h2>Short Description</h2>
+        <p><%= strip_tags(@community.shortDescription) %></p>
+<% end %>
+
+<% unless @community.sidebarText.size < 1 %>
+    <h2>Sidebar Text</h2>
+        <%= @community.sidebarText.html_safe %>
+<% end %>
+
+
+<!-- TODO get actual subcommunities by setting up recursion links etc -->
+
+<% unless @community.subcommunities.nil? %>
+    <h2>Communities within this Community</h2>
+        <ul>
+            <% @community.subcommunities.each do |s| %>
+              <li><%= s %></li>
+            <% end %>
+        </ul>
 <% end %>
