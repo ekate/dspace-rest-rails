@@ -1,7 +1,7 @@
 class CommunityController < HomeController
 
 
-def index
+def show
 
   @community = Community.new
   url = url_append(params[:id], $baseRestURL + '/communities')
@@ -9,33 +9,34 @@ def index
   rawJSON = RestClient.get url, { :accept => :json}
   jsonNode = JSON.parse(rawJSON)
 
-  if jsonNode['id']
-    @community.id = jsonNode['id']
-  end
+  @community.id = jsonNode['id'] unless jsonNode['id'].nil?
 
-  if jsonNode['name']
-    @community.name = jsonNode['name']
-  end
+  @community.name = jsonNode['name'] unless jsonNode['name'].nil?
 
-  if jsonNode['handle']
-    @community.handle = jsonNode['handle']
-  end
+  @community.handle = jsonNode['handle'] unless jsonNode['handle'].nil?
 
-  if jsonNode['type']
-    @community.type = jsonNode['type']
-  end
+  @community.type = jsonNode['type'] unless jsonNode['type'].nil?
 
-  if jsonNode['link']
-    @community.link = jsonNode['link']
-  end
+  @community.link = jsonNode['link'] unless jsonNode['link'].nil?
 
-  @community.collections = "something not nil"
+  @community.logo= jsonNode['logo'] unless jsonNode['logo'].nil?
 
+  @community.logo= jsonNode['parentCommunity'] unless jsonNode['parentCommunity'].nil?
+
+  @community.copyrightText = jsonNode['copyrightText'] unless jsonNode['copyrightText'].nil?
+
+  @community.introductoryText = jsonNode['introductoryText'] unless jsonNode['introductoryText'].nil?
+
+  @community.shortDescription = jsonNode['shortDescription'] unless jsonNode['shortDescription'].nil?
+
+  @community.sidebarText = jsonNode ['sidebarText'] unless jsonNode['sidebarText'].nil?
+
+  @community.countItems = jsonNode['countItems'] unless jsonNode['countItems'].nil?
+
+  @community.collections = jsonNode['collections'] unless jsonNode['collections'].nil?
+
+  @community.subcommunities = jsonNode['subcommunities'] unless jsonNode['subcommunities'].nil?
 
 end
-
-  def show
-    render :text =>  "Hello" + params["id"]
-  end
 
 end
