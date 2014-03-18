@@ -1,13 +1,16 @@
-<h1><%= @communities.size %> Communities</h1>
-<ul>
-    <% i = 0 %>
-    <% while i < @communities.size %>
-        <li>
-            <%= link_to "#{@communities[i]}", community_path(:id => "#{@communityID[i]}") %>
-        </li>
-        <% i += 1 %>
-    <% end %>
-</ul>
-<!-- TODO JSON expando thing -->
+<div class="jumbotron">
+    <h1><%= @communities.size %> Communities</h1>
 
-<h3>API Endpoint <a href="http://kb.osu.edu/rest/communities">http://kb.osu.edu/rest/communities</a></h3>
+    <ul>
+        <% i = 0 %>
+        <% while i < @communities.size %>
+            <li>
+                <%= link_to "#{@communities[i]}", community_path(:id => "#{@communityID[i]}") %>
+            </li>
+            <% i += 1 %>
+        <% end %>
+    </ul>
+    <!-- TODO JSON expando thing -->
+
+    <h3>API Endpoint <a href="http://kb.osu.edu/rest/communities">http://kb.osu.edu/rest/communities</a></h3>
+</div>
