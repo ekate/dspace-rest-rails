@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  # @return [@communities, @communityID]
+  # @return [@communities, @communityID, @rawJSON]
   def index
 
     @communityID = Array.new
@@ -9,13 +9,13 @@ class HomeController < ApplicationController
     url = url_append("communities", $baseRestURL)
 
     rawJSON = RestClient.get url, {:accept => :json}
-    jsonNode = JSON.parse(rawJSON)
+    $jsonNode = JSON.parse(rawJSON)
 
     i = 0
-    while i < jsonNode.size
+    while i < $jsonNode.size
 
-      @communityID.push jsonNode[i]['id']
-      @communities.push jsonNode[i]['name']
+      @communityID.push $jsonNode[i]['id']
+      @communities.push $jsonNode[i]['name']
       i += 1
 
     end
