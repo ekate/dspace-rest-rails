@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317134519) do
+ActiveRecord::Schema.define(version: 20140319161754) do
+
+  create_table "collections", force: true do |t|
+    t.string   "name"
+    t.string   "handle"
+    t.string   "type"
+    t.string   "link"
+    t.string   "logo"
+    t.string   "parentCommunity"
+    t.string   "parentCommunityList"
+    t.string   "items"
+    t.string   "license"
+    t.integer  "numberItems"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "communities", force: true do |t|
     t.integer  "commID"
