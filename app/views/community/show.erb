@@ -29,24 +29,47 @@
         <%= @community.sidebarText.html_safe %>
     <% end %>
 
+    <!-- TODO get and output parentCommunity links -->
 
-    <!-- TODO get actual subcommunities by setting up recursion links etc -->
-
-    <% unless @community.subcommunities.nil? %>
+    <% unless @community.subcommunities.size < 1 %>
         <h2>Communities within this Community</h2>
         <ul>
-            <% @community.subcommunities.each do |s| %>
-                <li><%= s %></li>
+            <% i = 0 %>
+            <% while @community.subcommunities.size > i %>
+                <li>
+                    <%= link_to "#{@community.subcommunities[i]['name']}", community_path(:id => "#{@community.subcommunities[i]['id']}") %>
+                </li>
+                <% i += 1 %>
             <% end %>
         </ul>
     <% end %>
 
-    <% unless @community.collections.nil? %>
-        <h2>Collections within this Community</h2>
+    <% unless @community.collections.size < 1 %>
+        <h2>Communities within this Community</h2>
         <ul>
-            <% @community.collections.each do |c| %>
-                <li><%= c %></li>
+            <% i = 0 %>
+            <% while @community.collections.size > i %>
+                <li>
+                    <%= link_to "#{@community.collections[i]['name']}", collection_path(:id => "#{@community.collections[i]['id']}") %>
+                </li>
+                <% i += 1 %>
             <% end %>
         </ul>
     <% end %>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">View JSON</a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <pre><code><%= JSON.pretty_generate($jsonNode) %></code></pre>
+            </div>
+        </div>
+    </div>
+
+    <p>API Endpoint <a href=<%= "http://kb.osu.edu/rest/community/" + @community.id.to_s + "?expand=all" %>><%= "http://kb.osu.edu/rest/community/" + @community.id.to_s + "?expand=all"%></a></p>
 </div>
+
