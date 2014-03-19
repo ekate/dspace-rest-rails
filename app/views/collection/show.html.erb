@@ -1,0 +1,62 @@
+<div class="jumbotron">
+
+    <!-- TODO navbar of parent commmunities above title -->
+    <h1><%= @collection.name %></h1>
+
+    <% unless @collection.parentCommunity['copyrightText'].size < 1 %>
+    <h2>Copyright Text</h2>
+    <p><% @collection.parentCommunity['copyrightText'] %></p>
+    <% end %>
+
+    <% unless @collection.handle.nil? %>
+        <p>Handle: <a href=<%= "http://hdl.handle.net/" + @collection.handle %>><%= "http://hdl.handle.net/" + @collection.handle %></a></p>
+    <% end %>
+
+    <% unless @collection.parentCommunity['introductoryText'].nil? %>
+        <h2>Introductory Text</h2>
+        <p><%= strip_tags(@collection.parentCommunity['introductoryText']) %></p>
+    <% end %>
+
+    <% unless @collection.parentCommunity['shortDescription'].nil? %>
+        <h2>Short Description</h2>
+        <p><%= strip_tags(@collection.parentCommunity['shortDescription']) %></p>
+    <% end %>
+
+    <% unless @collection.parentCommunity['sidebarText'].size < 1 %>
+        <h2>Sidebar Text</h2>
+        <%= @collection.parentCommunity['sidebarText'].html_safe %>
+    <% end %>
+
+    <% unless @collection.numberItems.nil? %>
+        <h2>This collection has <%= @collection.numberItems %> items</h2>
+    <% end %>
+
+    <% unless @collection.items.size < 1 %>
+        <ul>
+            <% i = 0 %>
+            <% while @collection.items.size > i %>
+                <li>
+                    <%= link_to "#{@collection.items[i]['name']}", collection_path(:id => "#{@collection.items[i]['id']}") %>
+                </li>
+                <% i += 1 %>
+            <% end %>
+        </ul>
+    <% end %>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">View JSON</a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <pre><code><%= JSON.pretty_generate($jsonNode) %></code></pre>
+            </div>
+        </div>
+    </div>
+
+    <p>API Endpoint <a href=<%= "http://kb.osu.edu/rest/collections/" + @collection.id.to_s + "?expand=all" %>><%= "http://kb.osu.edu/rest/collections/" + @collection.id.to_s + "?expand=all" %></a></p>
+
+
+</div>

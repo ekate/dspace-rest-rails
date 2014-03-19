@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: MyString
+  handle: MyString
+  type: 
+  link: MyString
+  logo: MyString
+  parentCommunity: MyString
+  parentCommunityList: MyString
+  items: MyString
+  license: MyString
+  numberItems: 1
+
+two:
+  id: 1
+  name: MyString
+  handle: MyString
+  type: 
+  link: MyString
+  logo: MyString
+  parentCommunity: MyString
+  parentCommunityList: MyString
+  items: MyString
+  license: MyString
+  numberItems: 1
