@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
 
-  # @return [@communities, @communityID, @rawJSON]
+  caches_page :index, expires_in: 1.hour
+
+  # @return [@communities, @communityID, $baseRestURL, $endpoint, $jsonNode]
   def index
 
     $baseRestURL = "http://kb.osu.edu/rest"

@@ -33,6 +33,10 @@ gem 'rest_client'
 # Use JSON for json parsing from REST API
 gem 'json'
 
+# Use actionpack caching for page, action and fragment caching
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
