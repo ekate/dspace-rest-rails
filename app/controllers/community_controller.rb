@@ -1,7 +1,7 @@
 class CommunityController < HomeController
 
 
-  # @return [@community]
+  # @return [@community, $baseRestUrl, $endpoint, $jsonNode]
   def show
 
     @community = Community.new

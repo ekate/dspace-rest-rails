@@ -1,5 +1,6 @@
 class ItemController < CollectionController
 
+  # @return [@item, $baseRestUrl, $endpoint, $jsonNode]
   def show
 
     @item = Item.new

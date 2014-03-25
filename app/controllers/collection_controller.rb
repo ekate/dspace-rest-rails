@@ -1,5 +1,6 @@
 class CollectionController < CommunityController
 
+  # @return [@collection, $baseRestUrl, $endpoint, $jsonNode]
   def show
 
     @collection = Collection.new
