@@ -1,5 +1,14 @@
 <div class="jumbotron">
 
+    <div class="row">
+        <div class="col-md-6">
+            <% if !@community.parentCommunity.nil? and @community.parentCommunity.size > 0%>
+                <p>Parent Communities</p>
+                <li><%= link_to "#{@community.parentCommunity['name']}", community_path(:id => "#{@community.parentCommunity['id']}")%></li>
+            <% end %>
+        </div>
+    </div>
+
     <!-- TODO navbar of parent commmunities above title -->
     <% $title = "Community" %>
     <h1><%= @community.name %></h1>
@@ -70,7 +79,7 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse">
             <div class="panel-body">
-                <pre><code><%= JSON.pretty_generate($jsonNode) %></code></pre>
+                <pre><code class="prettyprint"><%= JSON.pretty_generate($jsonNode) %></code></pre>
             </div>
         </div>
     </div>

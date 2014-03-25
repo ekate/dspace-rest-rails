@@ -1,6 +1,17 @@
 <div class="jumbotron">
 
-    <div class="row-fluid"
+    <div class="row">
+        <div class="col-md-6">
+            <% if !@collection.parentCommunityList.nil? and @collection.parentCommunityList.size > 0 %>
+                <% i = @collection.parentCommunityList.size %>
+                <p>Parent Communities</p>
+                <% while i > 0 %>
+                    <li><%= link_to "#{@collection.parentCommunityList[i - 1]['name']}", community_path(:id => "#{@collection.parentCommunityList[i - 1]['id']}")%></li>
+                    <% i -= 1 %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
 
     <!-- TODO navbar of parent commmunities above title -->
     <% $title = "Collection" %>

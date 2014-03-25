@@ -1,5 +1,29 @@
 <div class="jumbotron">
 
+    <div class="row">
+        <div class="col-md-6">
+            <% if !@item.parentCommunityList.nil? and @item.parentCommunityList.size > 0 %>
+                <% i = @item.parentCommunityList.size %>
+                <h3>Parent Communities</h3>
+                <% while i > 0 %>
+                    <li><%= link_to "#{@item.parentCommunityList[i - 1]['name']}", community_path(:id => "#{@item.parentCommunityList[i - 1]['id']}")%></li>
+                    <% i -= 1 %>
+                <% end %>
+            <% end %>
+        </div>
+
+        <div class="col-md-6">
+            <% if !@item.parentCollectionList.nil? and @item.parentCollectionList.size > 0 %>
+                <% i = @item.parentCollectionList.size %>
+                <h3>Parent Collections</h3>
+                <% while i > 0 %>
+                    <li><%= link_to "#{@item.parentCollectionList[i - 1]['name']}", community_path(:id => "#{@item.parentCollectionList[i - 1]['id']}")%></li>
+                    <% i -= 1 %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
     <!-- TODO navbar of parent commmunities above title -->
     <% $title = "Single Item" %>
     <h1><%= @item.name %></h1>
