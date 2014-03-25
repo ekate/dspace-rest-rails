@@ -1,5 +1,7 @@
 <div class="jumbotron">
 
+
+    <!-- TODO bug check on rest code item/59898 gives duplicate parent stuff in source json -->
     <div class="row">
         <div class="col-md-6">
             <% if !@item.parentCommunityList.nil? and @item.parentCommunityList.size > 0 %>
@@ -24,7 +26,6 @@
         </div>
     </div>
 
-    <!-- TODO navbar of parent commmunities above title -->
     <% $title = "Single Item" %>
     <h1><%= @item.name %></h1>
 
@@ -50,13 +51,27 @@
 
     <% unless @item.bitstreams.nil? %>
         <% $jsonNode['bitstreams'].each do |b|%>
-            <p>
-                <b><%= link_to "#{b['name']}", $baseRestURL + "#{b['retrieveLink'].gsub("/rest", "")}" %></b><br>
-                <% if b['description'].to_s.size > 0 %>
-                    <%= b['description'].to_s %><br>
-                <% end %>
-                Size: <%= b['sizeBytes'] / 1000.0 %> kB
-            </p>
+            <div class="media">
+                <a class="pull-left" href=<%= $baseRestURL + "#{b['retrieveLink'].gsub("/rest", "")}" %>>
+                    <% if b['mimeType'] == "image/jpeg" %>
+                        <img class="media-object image-rounded" style="max-width: 400px;" src=<%= $baseRestURL + "#{b['retrieveLink'].gsub("/rest", "")}" %>/>
+                    <% else %>
+                        <img class="media-object image-rounded" style="max-width: 400px;" src=<%= asset_path('kitten_placeholder.jpg') %>/>
+                    <% end %>
+                </a>
+                <div class="media-heading">
+
+                    <b><%= link_to "#{b['name']}", $baseRestURL + "#{b['retrieveLink'].gsub("/rest", "")}" %></b>
+                </div>
+                <div class="media-body">
+                    <% if b['description'].to_s.size > 0 %>
+                        <%= b['description'].to_s %>
+                    <% end %>
+                    Size: <%= b['sizeBytes'] / 1000.0 %> kB
+                </div>
+
+
+            </div>
         <% end %>
     <% end %>
 
