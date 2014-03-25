@@ -1,18 +1,25 @@
 <div class="jumbotron">
 
+    <div class="row-fluid"
+
     <!-- TODO navbar of parent commmunities above title -->
+    <% $title = "Collection" %>
     <h1><%= @collection.name %></h1>
 
+    <% unless @collection.logo.nil? %>
+        <img src=<%= $baseRestURL + @collection.logo['retrieveLink'].to_s %>>
+    <% end %>
+
     <% unless @collection.parentCommunity['copyrightText'].size < 1 %>
-    <h2>Copyright Text</h2>
-    <p><% @collection.parentCommunity['copyrightText'] %></p>
+        <h2>Copyright Text</h2>
+        <p><% @collection.parentCommunity['copyrightText'] %></p>
     <% end %>
 
     <% unless @collection.handle.nil? %>
         <p>Handle: <a href=<%= "http://hdl.handle.net/" + @collection.handle %>><%= "http://hdl.handle.net/" + @collection.handle %></a></p>
     <% end %>
 
-    <% unless @collection.parentCommunity['introductoryText'].nil? %>
+    <% unless @collection.parentCommunity['introductoryText'].size < 1 %>
         <h2>Introductory Text</h2>
         <p><%= strip_tags(@collection.parentCommunity['introductoryText']) %></p>
     <% end %>
@@ -36,7 +43,7 @@
             <% i = 0 %>
             <% while @collection.items.size > i %>
                 <li>
-                    <%= link_to "#{@collection.items[i]['name']}", collection_path(:id => "#{@collection.items[i]['id']}") %>
+                    <%= link_to "#{@collection.items[i]['name']}", item_path(:id => "#{@collection.items[i]['id']}") %>
                 </li>
                 <% i += 1 %>
             <% end %>
@@ -46,17 +53,16 @@
     <div class="panel panel-info">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">View JSON</a>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">View Source JSON</a>
             </h4>
         </div>
         <div id="collapseOne" class="panel-collapse collapse">
             <div class="panel-body">
-                <pre><code><%= JSON.pretty_generate($jsonNode) %></code></pre>
+                <pre><code class="prettyprint"><%= JSON.pretty_generate($jsonNode) %></code></pre>
             </div>
         </div>
     </div>
 
     <p>API Endpoint <a href=<%= "http://kb.osu.edu/rest/collections/" + @collection.id.to_s + "?expand=all" %>><%= "http://kb.osu.edu/rest/collections/" + @collection.id.to_s + "?expand=all" %></a></p>
-
 
 </div>

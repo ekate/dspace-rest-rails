@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  handle: MyString
+  type: 
+  link: MyString
+  lastModified: MyString
+  parentCollection: MyString
+  parentCollectionList: MyString
+  parentCommunityList: MyString
+  metadata: MyString
+  bitstreams: MyString
+  archived: false
+  withdrawn: false
+
+two:
+  name: MyString
+  handle: MyString
+  type: 
+  link: MyString
+  lastModified: MyString
+  parentCollection: MyString
+  parentCollectionList: MyString
+  parentCommunityList: MyString
+  metadata: MyString
+  bitstreams: MyString
+  archived: false
+  withdrawn: false

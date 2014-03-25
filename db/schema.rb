@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319161754) do
+ActiveRecord::Schema.define(version: 20140319184824) do
 
   create_table "collections", force: true do |t|
     t.string   "name"
@@ -43,6 +43,23 @@ ActiveRecord::Schema.define(version: 20140319161754) do
     t.integer  "countItems"
     t.string   "collections"
     t.string   "subcommunities"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.string   "name"
+    t.string   "handle"
+    t.string   "type"
+    t.string   "link"
+    t.string   "lastModified"
+    t.string   "parentCollection"
+    t.string   "parentCollectionList"
+    t.string   "parentCommunityList"
+    t.string   "metadata"
+    t.string   "bitstreams"
+    t.boolean  "archived"
+    t.boolean  "withdrawn"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,6 +3,8 @@ class HomeController < ApplicationController
   # @return [@communities, @communityID, @rawJSON]
   def index
 
+    $baseRestURL = "http://kb.osu.edu/rest"
+
     @communityID = Array.new
     @communities = Array.new
 

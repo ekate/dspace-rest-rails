@@ -23,7 +23,7 @@ class CommunityController < HomeController
 
     @community.logo= $jsonNode['logo'] unless $jsonNode['logo'].nil?
 
-    @community.logo= $jsonNode['parentCommunity'] unless $jsonNode['parentCommunity'].nil?
+    @community.parentCommunity = $jsonNode['parentCommunity'] unless $jsonNode['parentCommunity'].nil?
 
     @community.copyrightText = $jsonNode['copyrightText'] unless $jsonNode['copyrightText'].nil?
 

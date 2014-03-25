@@ -1,4 +1,4 @@
-class CollectionController < ApplicationController
+class CollectionController < CommunityController
 
   def show
 

@@ -1,5 +1,12 @@
 <div class="jumbotron">
+
+    <!-- TODO navbar of parent commmunities above title -->
+    <% $title = "Community" %>
     <h1><%= @community.name %></h1>
+
+    <% unless @community.logo.nil? %>
+        <img src=<%= $baseRestURL + @community.logo['retrieveLink'].to_s %>>
+    <% end %>
 
     <% unless @community.copyrightText.size < 1 %>
         <h2>Copyright Text</h2>
@@ -14,7 +21,7 @@
         <p>Handle: <a href=<%= "http://hdl.handle.net/" + @community.handle %>><%= "http://hdl.handle.net/" + @community.handle %></a></p>
     <% end %>
 
-    <% unless @community.introductoryText.nil? %>
+    <% unless @community.introductoryText.size < 1 %>
         <h2>Introductory Text</h2>
         <p><%= strip_tags(@community.introductoryText) %></p>
     <% end %>
@@ -28,8 +35,6 @@
         <h2>Sidebar Text</h2>
         <%= @community.sidebarText.html_safe %>
     <% end %>
-
-    <!-- TODO get and output parentCommunity links -->
 
     <% unless @community.subcommunities.size < 1 %>
         <h2>Communities within this Community</h2>
@@ -45,7 +50,7 @@
     <% end %>
 
     <% unless @community.collections.size < 1 %>
-        <h2>Communities within this Community</h2>
+        <h2>Collections within this Community</h2>
         <ul>
             <% i = 0 %>
             <% while @community.collections.size > i %>
@@ -60,7 +65,7 @@
     <div class="panel panel-info">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">View JSON</a>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">View Source JSON</a>
             </h4>
         </div>
         <div id="collapseOne" class="panel-collapse collapse">

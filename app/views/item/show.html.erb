@@ -1,0 +1,67 @@
+<div class="jumbotron">
+
+    <!-- TODO navbar of parent commmunities above title -->
+    <% $title = "Single Item" %>
+    <h1><%= @item.name %></h1>
+
+    <% unless @item.handle.nil? %>
+        <p>Handle: <a href=<%= "http://hdl.handle.net/" + @item.handle %>><%= "http://hdl.handle.net/" + @item.handle %></a></p>
+    <% end %>
+
+    <% if @item.archived %>
+        <p>Archival Status: In archive</p>
+    <% elsif !@item.archived %>
+        <p>Archival Status: Not yet in archive</p>
+    <% else  %>
+        <p>Archival Status: Unknown</p>
+    <% end %>
+
+    <% if @item.withdrawn %>
+        <p>Item withdrawal status: Withdrawn</p>
+    <% elsif !@item.withdrawn  %>
+        <p>Item withdrawal status: Not withdrawn</p>
+    <% else %>
+        <p>Item withdrawal status: Unknown</p>
+    <% end %>
+
+    <% unless @item.bitstreams.nil? %>
+        <% $jsonNode['bitstreams'].each do |b|%>
+            <p>
+                <b><%= link_to "#{b['name']}", $baseRestURL + "#{b['retrieveLink'].gsub("/rest", "")}" %></b><br>
+                <% if b['description'].to_s.size > 0 %>
+                    <%= b['description'].to_s %><br>
+                <% end %>
+                Size: <%= b['sizeBytes'] / 1000.0 %> kB
+            </p>
+        <% end %>
+    <% end %>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionOne" href="#collapseOne">View MetaData</a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <pre><%= @item['metadata'].html_safe %></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionTwo" href="#collapseTwo">View Source JSON</a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                <pre><code class="prettyprint"><%= JSON.pretty_generate($jsonNode) %></code></pre>
+            </div>
+        </div>
+    </div>
+
+    <p>API Endpoint <a href=<%= "http://kb.osu.edu/rest/items/" + @item.id.to_s + "?expand=all" %>><%= "http://kb.osu.edu/rest/items/" + @item.id.to_s + "?expand=all" %></a></p>
+
+</div>
