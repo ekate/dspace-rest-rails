@@ -6,12 +6,11 @@ class ApplicationController < ActionController::Base
   require 'json'
   require 'rest_client'
 
-  $baseRestURL = "http://kb.osu.edu/rest"
+  $base_rest_url = 'http://kb.osu.edu/rest'
 
-  def url_append(endpoint, baseURL)
+  def url_append(endpoint, base_url)
 
-    finalURL = baseURL + "/" + endpoint
-    return finalURL
+    final_url = "#{base_url}/#{endpoint}"
 
   end
 

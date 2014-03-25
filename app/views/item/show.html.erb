@@ -26,11 +26,11 @@
         </div>
     </div>
 
-    <% $title = "Single Item" %>
+    <% $title = 'Single Item' %>
     <h1><%= @item.name %></h1>
 
     <% unless @item.handle.nil? %>
-        <p>Handle: <a href=<%= "http://hdl.handle.net/" + @item.handle %>><%= "http://hdl.handle.net/" + @item.handle %></a></p>
+        <p>Handle: <a href=<%= 'http://hdl.handle.net/' + @item.handle %>><%= 'http://hdl.handle.net/' + @item.handle %></a></p>
     <% end %>
 
     <% if @item.archived %>
@@ -50,18 +50,18 @@
     <% end %>
 
     <% unless @item.bitstreams.nil? %>
-        <% $jsonNode['bitstreams'].each do |b|%>
+        <% $json_node['bitstreams'].each do |b|%>
             <div class="media">
-                <a class="pull-left" href=<%= $baseRestURL + "#{b['retrieveLink'].gsub("/rest", "")}" %>>
-                    <% if b['mimeType'] == "image/jpeg" %>
-                        <img class="media-object image-rounded" style="max-width: 400px;" src=<%= $baseRestURL + "#{b['retrieveLink'].gsub("/rest", "")}" %>/>
+                <a class="pull-left" href=<%= $base_rest_url + "#{b['retrieveLink'].gsub('/rest', '')}" %>>
+                    <% if b['mimeType'] == 'image/jpeg' %>
+                        <img class="media-object image-rounded" style="max-width: 400px;" src=<%= $base_rest_url + "#{b['retrieveLink'].gsub('/rest', '')}" %>/>
                     <% else %>
                         <img class="media-object image-rounded" style="max-width: 400px;" src=<%= asset_path('kitten_placeholder.jpg') %>/>
                     <% end %>
                 </a>
                 <div class="media-heading">
 
-                    <b><%= link_to "#{b['name']}", $baseRestURL + "#{b['retrieveLink'].gsub("/rest", "")}" %></b>
+                    <b><%= link_to "#{b['name']}", $base_rest_url + "#{b['retrieveLink'].gsub('/rest', '')}" %></b>
                 </div>
                 <div class="media-body">
                     <% if b['description'].to_s.size > 0 %>
@@ -89,6 +89,6 @@
         </div>
     </div>
 
-    <%= render partial: "shared/data_foot" %>
+    <%= render partial: 'shared/data_foot' %>
 
 </div>

@@ -1,17 +1,17 @@
 <div class="jumbotron">
-    <% $title = "Dspace Communities" %>
+    <% $title = 'Dspace Communities' %>
     <h1><%= @communities.size %> Communities</h1>
 
     <ul>
         <% i = 0 %>
         <% while i < @communities.size %>
             <li>
-                <%= link_to "#{@communities[i]}", community_path(:id => "#{@communityID[i]}") %>
+                <%= link_to "#{@communities[i]}", community_path(:id => "#{@community_id[i]}") %>
             </li>
             <% i += 1 %>
         <% end %>
     </ul>
 
-    <%= render partial: "shared/data_foot" %>
+    <%= render partial: 'shared/data_foot' %>
 
 </div>

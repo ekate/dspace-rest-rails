@@ -2,24 +2,24 @@ class HomeController < ApplicationController
 
   caches_page :index, expires_in: 1.hour
 
-  # @return [@communities, @communityID, $baseRestURL, $endpoint, $jsonNode]
+  # @return [@communities, @community_id, $base_rest_url, $endpoint, $json_node]
   def index
 
-    $baseRestURL = "http://kb.osu.edu/rest"
+    $base_rest_url = 'http://kb.osu.edu/rest'
 
-    @communityID = Array.new
+    @community_id = Array.new
     @communities = Array.new
 
-    $endpoint = url_append("communities", $baseRestURL)
+    $endpoint = url_append('communities', $base_rest_url)
 
-    rawJSON = RestClient.get $endpoint, {:accept => :json}
-    $jsonNode = JSON.parse(rawJSON)
+    raw_json = RestClient.get $endpoint, {:accept => :json}
+    $json_node = JSON.parse(raw_json)
 
     i = 0
-    while i < $jsonNode.size
+    while i < $json_node.size
 
-      @communityID.push $jsonNode[i]['id']
-      @communities.push $jsonNode[i]['name']
+      @community_id.push $json_node[i]['id']
+      @communities.push $json_node[i]['name']
       i += 1
 
     end

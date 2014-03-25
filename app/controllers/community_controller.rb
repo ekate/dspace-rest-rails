@@ -1,18 +1,18 @@
 class CommunityController < HomeController
 
 
-  # @return [@community, $baseRestUrl, $endpoint, $jsonNode]
+  # @return [@community, $base_rest_url, $endpoint, $json_node]
   def show
 
     @community = Community.new
-    $endpoint = url_append(params[:id], $baseRestURL + '/communities')
-    $endpoint = url_append("?expand=all", $endpoint)
+    $endpoint = url_append(params[:id], $base_rest_url + '/communities')
+    $endpoint = url_append('?expand=all', $endpoint)
 
-    rawJSON = RestClient.get $endpoint, { :accept => :json}
-    $jsonNode = JSON.parse(rawJSON)
+    raw_json = RestClient.get $endpoint, { :accept => :json}
+    $json_node = JSON.parse(raw_json)
 
-    $jsonNode.each do |key, value|
-      unless key == "expand"
+    $json_node.each do |key, value|
+      unless key == 'expand'
         @community["#{key}"] = value
       end
     end

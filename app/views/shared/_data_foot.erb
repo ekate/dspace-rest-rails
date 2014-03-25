@@ -1,4 +1,4 @@
-<% if !$endpoint.include? "item" %>
+<% unless $endpoint.include? 'item' %>
     <hr style="background-color: #FFFFFF; height: 2px;"/>
 <% end %>
 
@@ -10,7 +10,7 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
         <div class="panel-body">
-            <pre><code class="prettyprint"><%= JSON.pretty_generate($jsonNode) %></code></pre>
+            <pre><code class="prettyprint"><%= JSON.pretty_generate($json_node) %></code></pre>
         </div>
     </div>
 </div>

@@ -13,11 +13,11 @@
         </div>
     </div>
 
-    <% $title = "Collection" %>
+    <% $title = 'Collection' %>
     <h1><%= @collection.name %></h1>
 
     <% unless @collection.logo.nil? %>
-        <img src=<%= $baseRestURL + @collection.logo['retrieveLink'].to_s %>>
+        <img src=<%= $base_rest_url + @collection.logo['retrieveLink'].to_s %>>
     <% end %>
 
     <% unless @collection.parentCommunity['copyrightText'].size < 1 %>
@@ -26,7 +26,7 @@
     <% end %>
 
     <% unless @collection.handle.nil? %>
-        <p>Handle: <a href=<%= "http://hdl.handle.net/" + @collection.handle %>><%= "http://hdl.handle.net/" + @collection.handle %></a></p>
+        <p>Handle: <a href=<%= 'http://hdl.handle.net/' + @collection.handle %>><%= 'http://hdl.handle.net/' + @collection.handle %></a></p>
     <% end %>
 
     <% unless @collection.parentCommunity['introductoryText'].size < 1 %>
@@ -60,5 +60,5 @@
         </ul>
     <% end %>
 
-    <%= render partial: "shared/data_foot" %>
+    <%= render partial: 'shared/data_foot' %>
 </div>
