@@ -1,10 +1,10 @@
 DspaceRestRuby::Application.routes.draw do
 
-  get "home/index"
+  get '/communities', to: 'home#index'
 
-  get "home/about"
+  get '/about', to: 'home#about'
 
-  get "home/contact"
+  get '/contact', to: 'home#contact'
 
   resources :community
 
