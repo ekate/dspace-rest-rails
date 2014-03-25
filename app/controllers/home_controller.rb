@@ -8,9 +8,9 @@ class HomeController < ApplicationController
     @communityID = Array.new
     @communities = Array.new
 
-    url = url_append("communities", $baseRestURL)
+    $endpoint = url_append("communities", $baseRestURL)
 
-    rawJSON = RestClient.get url, {:accept => :json}
+    rawJSON = RestClient.get $endpoint, {:accept => :json}
     $jsonNode = JSON.parse(rawJSON)
 
     i = 0

@@ -12,18 +12,5 @@
         <% end %>
     </ul>
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">View Source JSON</a>
-            </h4>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse">
-            <div class="panel-body">
-                <pre><code class="prettyprint"><%= JSON.pretty_generate($jsonNode) %></code></pre>
-            </div>
-        </div>
-    </div>
-
-    <p>API Endpoint <a href="http://kb.osu.edu/rest/communities">http://kb.osu.edu/rest/communities</a></p>
+    <%= render partial: "shared/data_foot" %>
 </div>

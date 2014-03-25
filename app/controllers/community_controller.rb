@@ -5,10 +5,10 @@ class CommunityController < HomeController
   def show
 
     @community = Community.new
-    url = url_append(params[:id], $baseRestURL + '/communities')
-    url = url_append("?expand=all", url)
+    $endpoint = url_append(params[:id], $baseRestURL + '/communities')
+    $endpoint = url_append("?expand=all", $endpoint)
 
-    rawJSON = RestClient.get url, { :accept => :json}
+    rawJSON = RestClient.get $endpoint, { :accept => :json}
     $jsonNode = JSON.parse(rawJSON)
 
     @community.id = $jsonNode['id'] unless $jsonNode['id'].nil?

@@ -73,34 +73,22 @@
 
             </div>
         <% end %>
+        <hr style="background-color: #FFFFFF; height: 1px;"/>
     <% end %>
 
     <div class="panel panel-info">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordionOne" href="#collapseOne">View MetaData</a>
+                <a data-toggle="collapse" data-parent="#accordionTwo" href="#collapseTwo">View MetaData</a>
             </h4>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse">
+        <div id="collapseTwo" class="panel-collapse collapse">
             <div class="panel-body">
                 <pre><%= @item['metadata'].html_safe %></pre>
             </div>
         </div>
     </div>
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordionTwo" href="#collapseTwo">View Source JSON</a>
-            </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse">
-            <div class="panel-body">
-                <pre><code class="prettyprint"><%= JSON.pretty_generate($jsonNode) %></code></pre>
-            </div>
-        </div>
-    </div>
-
-    <p>API Endpoint <a href=<%= "http://kb.osu.edu/rest/items/" + @item.id.to_s + "?expand=all" %>><%= "http://kb.osu.edu/rest/items/" + @item.id.to_s + "?expand=all" %></a></p>
+    <%= render partial: "shared/data_foot" %>
 
 </div>

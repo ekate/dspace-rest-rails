@@ -3,10 +3,10 @@ class ItemController < CollectionController
   def show
 
     @item = Item.new
-    url = url_append(params[:id], $baseRestURL + "/items")
-    url = url_append("?expand=all", url)
+    $endpoint = url_append(params[:id], $baseRestURL + "/items")
+    $endpoint = url_append("?expand=all", $endpoint)
 
-    rawJSON = RestClient.get url ,{:accept => :json}
+    rawJSON = RestClient.get $endpoint ,{:accept => :json}
     $jsonNode = JSON.parse(rawJSON)
 
     @item.id = $jsonNode['id'] unless $jsonNode['id'].nil?
