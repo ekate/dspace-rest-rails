@@ -1,4 +1,4 @@
-== dspace-rest-rails
+= dspace-rest-rails
 
 === Things that may be of interests for collaborators
 
