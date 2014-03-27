@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require run_prettify.js
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
