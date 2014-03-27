@@ -1,28 +1,21 @@
-== README
+== dspace-rest-rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Things that may be of interests for collaborators
 
-Things you may want to cover:
+* Ruby & Rails versions - Ruby 2.1.1, Rails 4.0.3
 
-* Ruby version
+* System info - I developed this using Jet-Brains IntelliJ IDEA 3.1 Utimate (though I added the appropriate .gitignore files)
 
-* System dependencies
+* Database - The app was made with mySQL database configuration. The postgres gem is installed for compatibility with heroku. Uses standard db:create, db:migrate etc.
 
-* Configuration
+* Deployment - I've deployed the app to http://dspace-rails.herokuapp.com for an example of what it looks like.
 
-* Database creation
+Note: The root of the app takes ~7s to load because of an external dspace SQL query issue and is not because of the app itself. (I may add caching for increased performance in the future)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+=== To contribute:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. create a fork
+2. clone the fork    
+3. make your changes
+4. push to your branch
+5. submit a pull request
