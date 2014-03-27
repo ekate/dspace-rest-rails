@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  caches_page :index, expires_in: 1.hour
+  #caches_page :index, expires_in: 1.hour
 
   # @return [@communities, @community_id, $base_rest_url, $endpoint, $json_node]
   def index
