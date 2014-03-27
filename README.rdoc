@@ -1,8 +1,8 @@
 == dspace-rest-rails
 
-**Things that may be of interests for collaborators**
+=== Things that may be of interests for collaborators
 
-* Ruby version - Ruby 2.1.1
+* Ruby & Rails versions - Ruby 2.1.1, Rails 4.0.3
 
 * System info - I developed this using Jet-Brains IntelliJ IDEA 3.1 Utimate (though I added the appropriate .gitignore files)
 
@@ -10,9 +10,9 @@
 
 * Deployment - I've deployed the app to http://dspace-rails.herokuapp.com for an example of what it looks like.
 
-Note: The root of the app takes ~7s to load because of an external dspace SQL query issue and is not because of the app itself. (I may add caching for performance in the future)
+Note: The root of the app takes ~7s to load because of an external dspace SQL query issue and is not because of the app itself. (I may add caching for increased performance in the future)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**To contribute:**
+=== To contribute:
 
 1. create a fork
 2. clone the fork    
