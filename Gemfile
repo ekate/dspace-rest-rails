@@ -1,4 +1,4 @@
-ruby '2.0.0'
+ruby '2.1.1'
 
 source 'https://rubygems.org'
 
@@ -36,6 +36,9 @@ gem 'rest_client'
 
 # Use JSON for json parsing from REST API
 gem 'json'
+
+# Use static assets for heroku happiness
+gem 'rails_serve_static_assets'
 
 # Use actionpack caching for page, action and fragment caching
 gem 'actionpack-page_caching'

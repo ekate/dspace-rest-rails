@@ -142,6 +142,7 @@ DEPENDENCIES
   pg
   rails (= 4.0.3)
   rails_12factor
+  rails_serve_static_assets
   rdoc
   rest_client
   sass-rails (~> 4.0.0)
