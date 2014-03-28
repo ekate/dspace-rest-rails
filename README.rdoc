@@ -10,7 +10,7 @@
 
 * Deployment - I've deployed the app to http://dspace-rails.herokuapp.com for an example of what it looks like.
 
-Note: The root of the app takes ~7s to load because of an external dspace SQL query issue and is not because of the app itself. (I may add caching for increased performance in the future)
+Note: The root of the app takes ~7s to load because of an external dspace SQL query issue and is not because of the app itself. (I've added caching of that page for improved performance)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 === To contribute:
 
