@@ -55,8 +55,16 @@
                 <a class="pull-left" href=<%= $base_rest_url + "#{b['retrieveLink'].gsub('/rest', '')}" %>>
                     <% if b['mimeType'] == 'image/jpeg' %>
                         <img class="media-object image-rounded" style="max-width: 400px;" src=<%= $base_rest_url + "#{b['retrieveLink'].gsub('/rest', '')}" %>/>
+                    <% elsif b['mimeType'] == 'application/pdf' %>
+                        <img class="media-object image-rounded" src=<%= asset_path('pdf_file.gif') %>/>
+                    <% elsif b['mimeType'] == 'text/plain' %>
+                        <img class="media-object image-rounded" src=<%= asset_path('text_file.png') %>/>
+                    <% elsif b['mimeType'] == 'text/html; charset=utf-8' %>
+                        <img class="media-object image-rounded" src=<%= asset_path('html_file.png') %>/>
+                    <% elsif b['mimeType'] == 'application/rdf+xml; charset=utf-8' %>
+                        <img class="media-object image-rounded" src=<%= asset_path('rdfxml_file.png') %>/>
                     <% else %>
-                        <img class="media-object image-rounded" style="max-width: 400px;" src=<%= asset_path('kitten_placeholder.jpg') %>/>
+                        <img class="media-object image-rounded" src=<%= asset_path('kitten_placeholder.jpg') %>/>
                     <% end %>
                 </a>
                 <div class="media-heading">
