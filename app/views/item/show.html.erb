@@ -59,7 +59,7 @@
                         <img class="media-object image-rounded" src=<%= asset_path('pdf_file.gif') %>/>
                     <% elsif b['mimeType'] == 'text/plain' %>
                         <img class="media-object image-rounded" src=<%= asset_path('text_file.png') %>/>
-                    <% elsif b['mimeType'] == 'text/html; charset=utf-8' %>
+                    <% elsif b['mimeType'] == 'text/html; charset=utf-8' or b['mimeType'] == 'text/html'%>
                         <img class="media-object image-rounded" src=<%= asset_path('html_file.png') %>/>
                     <% elsif b['mimeType'] == 'application/rdf+xml; charset=utf-8' %>
                         <img class="media-object image-rounded" src=<%= asset_path('rdfxml_file.png') %>/>

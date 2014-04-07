@@ -19,6 +19,7 @@ class HomeController < ApplicationController
     @list = String.new
     get_index_list(@communities['subcommunities'])
     $endpoint = final_endpoint
+    get_json
 
   end
 
