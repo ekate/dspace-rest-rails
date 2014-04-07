@@ -18,7 +18,7 @@
 
     <% unless @community.copyrightText.size < 1 %>
         <h2>Copyright Text</h2>
-        <p><% @community.copyrightText %></p>
+        <p><%= @community.copyrightText %></p>
     <% end %>
 
     <% unless @community.countItems.nil? %>

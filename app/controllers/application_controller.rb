@@ -10,7 +10,24 @@ class ApplicationController < ActionController::Base
 
   def url_append(endpoint, base_url)
 
-    final_url = "#{base_url}/#{endpoint}"
+    final_url = "#{base_url}/#{endpoint}?expand=all"
+
+  end
+
+  def get_json
+
+    raw_json = RestClient.get $endpoint, { :accept => :json}
+    $json_node = JSON.parse(raw_json)
+
+  end
+
+  def parse(object)
+
+    $json_node.each do |key, value|
+      unless key == 'expand'
+        object["#{key}"] = value
+      end
+    end
 
   end
 

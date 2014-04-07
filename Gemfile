@@ -61,7 +61,22 @@ end
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+
+  #gem 'linecache19', '0.5.13', :path => "~/.rvm/gems/ruby-2.1.1/gems/linecache19-0.5.13"
+  #gem 'ruby-debug-base19x', '0.11.30.pre10'
+  #gem 'ruby-debug-ide', '0.4.17.beta9'
+  gem 'ruby-debug-ide', '~> 0.4.22'
+  #gem 'ruby-debug', '~> 0.10.4'
+  gem 'debase', '~> 0.0.9'
+
+  #gem 'ruby-debug-ide'
+  #gem 'ruby-debug-base19x'
+  # Use for intelliJ debug
+  #gem 'byebug'
 end
+
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

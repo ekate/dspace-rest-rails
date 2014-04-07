@@ -45,7 +45,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    debase (0.0.9)
+      debugger-ruby_core_source
     debug_inspector (0.0.2)
+    debugger-ruby_core_source (1.3.2)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -93,6 +96,8 @@ GEM
       json (~> 1.4)
     rest_client (1.7.3)
       netrc (~> 0.7.7)
+    ruby-debug-ide (0.4.22)
+      rake (>= 0.8.1)
     sass (3.3.2)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -133,6 +138,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  debase (~> 0.0.9)
   jbuilder (~> 1.2)
   jquery-rails
   json
@@ -145,6 +151,7 @@ DEPENDENCIES
   rails_serve_static_assets
   rdoc
   rest_client
+  ruby-debug-ide (~> 0.4.22)
   sass-rails (~> 4.0.0)
   sdoc
   turbolinks
