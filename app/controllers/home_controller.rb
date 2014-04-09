@@ -1,9 +1,8 @@
 class HomeController < ApplicationController
 
-    caches_action :index, layout: true
-    caches_action :get_index_list, layout: false
-    caches_action :list_col, layout: false
-
+      caches_action :index, layout: true
+      caches_action :get_index_list, layout: false
+      caches_action :list_col, layout: false
 
   # @return [@communities, @community_id, $base_rest_url, $endpoint, $json_node]
   def index

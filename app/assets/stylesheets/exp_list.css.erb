@@ -35,9 +35,10 @@ li.file
 li.file a
 {
     width: intrinsic;
-    padding-left: 21px;
+    padding-left: 25px;
     text-decoration: none;
     display: block;
+    margin: 5px 0 5px 0;
 }
 
 li.file a[href *= '.pdf']	{ background: url(document.png) 0 0 no-repeat; }
@@ -56,17 +57,22 @@ li input
     height: 1em;
     width: 1em;
     top: 0;
+
 }
 
 li input + ol
 {
     background: url(<%= asset_path 'iconCollapsed.png' %>) 40px 0 no-repeat;
     margin: -1.6em 0 0 -44px; /* 15px */
-    padding: 1.563em 0 0 80px;
+    padding: 1.75em 0 0 80px;
     height: 2em;
 }
 
-li input + ol > li { display: none; margin-left: -14px !important; padding-left: 1px; }
+li input + ol > li {
+    display: none;
+    margin-left: -14px !important;
+    padding-left: 1px;
+}
 
 li label
 {
@@ -78,15 +84,15 @@ li label
 
 li input:checked + ol
 {
-    background: url(<%= asset_path 'iconExpanded.png' %>) 40px 5px no-repeat;
-    margin: -1.85em 0 0 -44px;
-    padding: 1.563em 0 0 80px;
+    background: url(<%= asset_path 'iconExpanded.png' %>) 40px -2px no-repeat;
+    margin: -20px 0 10px -44px;
+    padding: 1.4em 0 0 80px;
     height: auto;
 }
 
 li input:checked + ol > li {
     display: block;
-    margin: 0 0 0.125em;  /* 2px */
+    margin: 5px 0 0.125em;  /* 2px */
 }
 
 li input:checked + ol > li:last-child {
