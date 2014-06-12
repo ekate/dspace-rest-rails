@@ -14,7 +14,7 @@ development:
   database: dspace-rest-ruby_development
   pool: 5
   username: root
-  password: 3nUnh8pY
+  password: root
   host: localhost
   socket: /tmp/mysql.sock
 
@@ -27,7 +27,7 @@ test:
   database: dspace-rest-ruby_test
   pool: 5
   username: root
-  password: 3nUnh8pY
+  password: root
   host: localhost
   socket: /tmp/mysql.sock
 
@@ -37,6 +37,6 @@ production:
   database: dspace-rest-ruby_production
   pool: 5
   username: root
-  password: 3nUnh8pY
+  password: root
   host: localhost
   socket: /tmp/mysql.sock
