@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319184824) do
+ActiveRecord::Schema.define(version: 20140612162427) do
 
   create_table "collections", force: true do |t|
     t.string   "name"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20140319184824) do
     t.integer  "numberItems"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "copyrightText"
+    t.string   "introductoryText"
+    t.string   "shortDescription"
+    t.string   "sidebarText"
   end
 
   create_table "communities", force: true do |t|
