@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
   require 'json'
   require 'rest_client'
 
-  $base_rest_url = 'http://kb.osu.edu/rest'
+  #$base_rest_url = 'http://kb.osu.edu/rest'
+  $base_rest_url = 'http://localhost:8080/rest'
 
-  def url_append(endpoint, base_url)
-
-    final_url = "#{base_url}/#{endpoint}?expand=all"
-
+  #endpoint should include slashes
+  def url_append(endpoint, query_params = nil)
+    $base_rest_url + endpoint + (query_params || '?expand=all')
   end
 
   def get_json
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def parse(object)
 
     $json_node.each do |key, value|
-      unless key == 'expand'
+      if (key != 'expand') and (key != 'context')
         object["#{key}"] = value
       end
     end

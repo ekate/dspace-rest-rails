@@ -1,10 +1,21 @@
 class ItemController < CollectionController
 
+  def index
+    if params[:offset]
+      $endpoint = url_append('/items', "?offset=#{params[:offset]}")
+    else
+      $endpoint = url_append('/items')
+    end
+
+    get_json
+    @items = $json_node['item']
+  end
+
   # @return [@item, $base_rest_url, $endpoint, $json_node]
   def show
 
     @item = Item.new
-    $endpoint = url_append(params[:id], $base_rest_url + '/items')
+    $endpoint = url_append("/items/#{params[:id]}")
 
     get_json
     parse(@item)

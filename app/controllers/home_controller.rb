@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 
     @communities = Community.new
 
-    $endpoint = url_append('communities', $base_rest_url)
+    $endpoint = url_append('/communities')
     final_endpoint = $endpoint
 
     get_json
@@ -17,7 +17,7 @@ class HomeController < ApplicationController
     @communities['subcommunities'] = $json_node
 
     @list = String.new
-    get_index_list(@communities['subcommunities'])
+    get_index_list(@communities['subcommunities']['community'])
     $endpoint = final_endpoint
     get_json
 
@@ -34,7 +34,7 @@ class HomeController < ApplicationController
       @list += self.class.helpers.link_to(com['name'], community_path(:id => com['id']))
       @list += '</label><input type="checkbox" id="' + com['name'][0,10] + '"/>'
 
-      $endpoint = url_append(com['id'],"#{$base_rest_url}/communities")
+      $endpoint = url_append("/communities/#{com['id']}")
       get_json
 
       #recursion

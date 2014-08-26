@@ -4,7 +4,12 @@ class CollectionController < CommunityController
   def show
 
     @collection = Collection.new
-    $endpoint = url_append(params[:id], "#{$base_rest_url}/collections")
+    if params[:offset]
+      $endpoint = url_append("/collections/#{params[:id]}", "?expand=all&offset=#{params[:offset]}")
+    else
+      $endpoint = url_append("/collections/#{params[:id]}")
+    end
+
 
     get_json
     parse(@collection)
