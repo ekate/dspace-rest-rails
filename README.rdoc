@@ -1,4 +1,5 @@
 = dspace-rest-rails
+This is the first Ruby on Rails App I ever made. I used it to learn Ruby and Rails so it might not be the absolute best ways of doing things. It works well enough though and gave me experience working with lots of data and a Rest API.
 
 === Things that may be of interests for collaborators
 
