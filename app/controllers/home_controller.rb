@@ -9,10 +9,14 @@ class HomeController < ApplicationController
 
     @communities = Community.new
 
+    $top_communities = url_append('communities/top-communities', $base_rest_url)
+    $endpoint = $top_communities
+    get_json
+
     $endpoint = url_append('communities', $base_rest_url)
     final_endpoint = $endpoint
 
-    get_json
+
     $endpoint.gsub!('?expand=all','')
     @communities['subcommunities'] = $json_node
 
