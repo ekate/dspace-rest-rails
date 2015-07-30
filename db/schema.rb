@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140319184824) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "collections", force: true do |t|
     t.string   "name"
     t.string   "handle"
@@ -20,6 +23,10 @@ ActiveRecord::Schema.define(version: 20140319184824) do
     t.string   "link"
     t.string   "logo"
     t.string   "parentCommunity"
+    t.string   "copyrightText"
+    t.string   "introductoryText"
+    t.string   "shortDescription"
+    t.string   "sidebarText"
     t.string   "parentCommunityList"
     t.string   "items"
     t.string   "license"
@@ -29,7 +36,6 @@ ActiveRecord::Schema.define(version: 20140319184824) do
   end
 
   create_table "communities", force: true do |t|
-    t.integer  "commID"
     t.string   "name"
     t.string   "handle"
     t.string   "type"
