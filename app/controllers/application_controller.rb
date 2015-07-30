@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   require 'json'
   require 'rest_client'
 
-  $base_rest_url = 'http://kb.osu.edu/rest'
+  $base_rest_url = 'https://trydspace.longsight.com/rest'
+  #$base_rest_url = 'http://localhost:8080/rest'
 
   def url_append(endpoint, base_url)
 
