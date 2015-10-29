@@ -4,7 +4,7 @@
 
 <div class="jumbotron">
     <% $title = 'DSpace Communities' %>
-    <h1><%= @communities['subcommunities'].size %> Communities</h1>
+    <h1><%= @communities.size %> Communities</h1>
 
     <ol class="tree">
         <%= @list.html_safe %>

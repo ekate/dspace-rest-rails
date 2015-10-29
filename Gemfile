@@ -32,10 +32,12 @@ gem 'netrc'
 gem 'rdoc'
 
 # Use rest-client to get json from REST API
-gem 'rest_client'
+#gem 'rest_client'
+gem  'active_rest_client'
 
 # Use JSON for json parsing from REST API
 gem 'json'
+gem 'sqlite3'
 
 # Use static assets for heroku happiness
 gem 'rails_serve_static_assets'

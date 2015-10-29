@@ -4,14 +4,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   require 'json'
-  require 'rest_client'
+  require 'active_rest_client'
 
-  $base_rest_url = 'https://trydspace.longsight.com/rest'
-  #$base_rest_url = 'http://localhost:8080/rest'
+
+
+
+
+  #$base_rest_url = 'https://trydspace.longsight.com/rest'
+  $base_rest_url = 'http://localhost:8080/rest'
 
   def url_append(endpoint, base_url)
+    #base_url=Rails.application.config.api_server_url
 
-    final_url = "#{base_url}/#{endpoint}?expand=all"
+   #final_url = "#{base_url}/#{endpoint}?expand=all"
+
 
   end
 
@@ -24,12 +30,21 @@ class ApplicationController < ActionController::Base
 
   def parse(object)
 
-    $json_node.each do |key, value|
-      unless key == 'expand'
-        object["#{key}"] = value
-      end
+    #$json_node.each do |key, value|
+     # unless key == 'expand'
+      #  object["#{key}"] = value
+      #end
+    #end
+    object.each do |json_node |
+    data = JSON.parse(json_node)
+
+    data['data']['children'].each do |child|
+      puts child['data']['body']
     end
+
+      end
 
   end
 
 end
+

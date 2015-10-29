@@ -21,3 +21,20 @@ module DspaceRestRuby
     # config.i18n.default_locale = :de
   end
 end
+
+DspaceRestRuby::Application.configure do
+  config.api_server_url = "https://localhost:8443/rest"
+  #config.api_server_url ="https://trydspace.longsight.com/rest"
+
+  ActiveRestClient::Base.faraday_config do |faraday|
+    faraday.adapter(:net_http)
+    faraday.ssl.verify_mode =  false
+    faraday.options.timeout       = 10
+    faraday.headers['User-Agent'] = "ActiveRestClient/#{ActiveRestClient::VERSION}"
+  end
+
+
+end
+
+
+

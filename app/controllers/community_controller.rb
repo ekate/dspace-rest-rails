@@ -7,7 +7,7 @@ class CommunityController < HomeController
     @community = Community.new
     $endpoint = url_append(params[:id], $base_rest_url + '/communities')
 
-    get_json
+    Community.all
     parse(@community)
 
   end
