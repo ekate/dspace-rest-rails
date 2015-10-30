@@ -1,18 +1,3 @@
-
-DspaceRestRuby::Application.configure do
-  config.api_server_url = "https://localhost:8443/rest"
-  #config.api_server_url ="https://trydspace.longsight.com/rest"
-
-  ActiveRestClient::Base.faraday_config do |faraday|
-    faraday.adapter(:net_http)
-    faraday.ssl.verify_mode =  false
-    faraday.options.timeout       = 10
-    faraday.headers['User-Agent'] = "ActiveRestClient/#{ActiveRestClient::VERSION}"
-  end
-
-
-end
-
 # app/models/person.rb
 class Community < ActiveRestClient::Base
   base_url Rails.application.config.api_server_url
@@ -39,8 +24,11 @@ class Community < ActiveRestClient::Base
 
 
 
-  get :all, "/communities/top-communities"
-  get :find, "/communities/"
+  get :all, "/communities/"
+  get :top, "/communities/top-communities"
+  get :find, "/communities/:id"
+  get :collections, "/communities/:id/collections"
+  get :subcommunities, "/communities/:id/communities"
   post :login , "/login/",  plain: true
   put :save, "/communities/:id"
   post :create, "/communities"

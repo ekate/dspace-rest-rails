@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
 
 
 
-  #$base_rest_url = 'https://trydspace.longsight.com/rest'
-  $base_rest_url = 'http://localhost:8080/rest'
+  $base_rest_url = 'https://trydspace.longsight.com/rest'
+  #$base_rest_url = 'http://localhost:8080/rest'
 
   def url_append(endpoint, base_url)
     #base_url=Rails.application.config.api_server_url

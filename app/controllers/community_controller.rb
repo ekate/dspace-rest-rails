@@ -1,14 +1,12 @@
 class CommunityController < HomeController
 
 
+
   # @return [@community, $base_rest_url, $endpoint, $json_node]
   def show
 
-    @community = Community.new
-    $endpoint = url_append(params[:id], $base_rest_url + '/communities')
-
-    Community.all
-    parse(@community)
+    @community = Community.find(params[:id])
+    respond_with(@community)
 
   end
 

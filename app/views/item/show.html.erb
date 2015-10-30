@@ -41,16 +41,11 @@
         <p>Archival Status: Unknown</p>
     <% end %>
 
-    <% if @item.withdrawn %>
+    <% if @item.withdrawn.equal?('y') %>
         <p>Item withdrawal status: Withdrawn</p>
-    <% elsif !@item.withdrawn  %>
-        <p>Item withdrawal status: Not withdrawn</p>
-    <% else %>
-        <p>Item withdrawal status: Unknown</p>
     <% end %>
-
-    <% unless @item.bitstreams.nil? %>
-        <% $json_node['bitstreams'].each do |b|%>
+    <% @bitstreams=Item.bitstreams(params[:id]) %>
+        <% @bitstreams.each do |b|%>
             <div class="media">
                 <a class="pull-left" href=<%= $base_rest_url + "#{b['retrieveLink'].gsub('/rest', '')}" %>>
                     <% if b['mimeType'] == 'image/jpeg' %>
@@ -82,7 +77,6 @@
             </div>
         <% end %>
         <hr style="background-color: #FFFFFF; height: 2px;"/>
-    <% end %>
 
     <div class="panel panel-info">
         <div class="panel-heading">

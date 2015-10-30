@@ -3,28 +3,15 @@ class HomeController < ApplicationController
       #caches_action :index, layout: true
       #caches_action :get_index_list, layout: false
       #caches_action :list_col, layout: false
+     respond_to :json, :html
 
   # @return [@communities, @community_id, $base_rest_url, $endpoint, $json_node]
   def index
 
-    @communities = Community.all
-
-    #$top_communities = url_append('communities/top-communities', $base_rest_url)
-    #$endpoint = $top_communities
-    #get_json
-
-    #$endpoint = url_append('communities', $base_rest_url)
-    #final_endpoint = $endpoint
-
-
-    #$endpoint.gsub!('?expand=all','')
-    #@communities['subcommunities'] = $json_node
-
+    @communities = Community.top
     @list = String.new
     get_index_list(@communities)
-    ##$endpoint = final_endpoint
-    #get_json
-    #parse @communities
+
 
   end
 
@@ -39,8 +26,6 @@ class HomeController < ApplicationController
       @list += self.class.helpers.link_to(com['name'], community_path(:id => com['id']))
       @list += '</label><input type="checkbox" id="' + com['name'][0,10] + '"/>'
 
-      #$endpoint = url_append(com['id'],"#{$base_rest_url}/communities")
-      #get_json
 
       #recursion
       #if $json_node['collections'].size >= 1 or !$json_node['collections'].nil? or !$json_node['subcommunities'].nil? or $json_node['subcommunities'].size >= 1

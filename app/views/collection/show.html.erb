@@ -20,42 +20,26 @@
         <img src=<%= $base_rest_url + @collection.logo['retrieveLink'].to_s %>>
     <% end %>
 
-    <% unless @collection.parentCommunity['copyrightText'].size < 1 %>
-        <h2>Copyright Text</h2>
-        <p><% @collection.parentCommunity['copyrightText'] %></p>
-    <% end %>
-
     <% unless @collection.handle.nil? %>
         <p>Handle: <a href=<%= 'http://hdl.handle.net/' + @collection.handle %>><%= 'http://hdl.handle.net/' + @collection.handle %></a></p>
     <% end %>
 
-    <% unless @collection.parentCommunity['introductoryText'].size < 1 %>
-        <h2>Introductory Text</h2>
-        <p><%= strip_tags(@collection.parentCommunity['introductoryText']) %></p>
-    <% end %>
 
-    <% unless @collection.parentCommunity['shortDescription'].nil? %>
+    <% unless @collection.shortDescription.nil? %>
         <h2>Short Description</h2>
-        <p><%= strip_tags(@collection.parentCommunity['shortDescription']) %></p>
-    <% end %>
-
-    <% unless @collection.parentCommunity['sidebarText'].size < 1 %>
-        <h2>Sidebar Text</h2>
-        <%= @collection.parentCommunity['sidebarText'].html_safe %>
+        <p><%= strip_tags(@collection.shortDescription) %></p>
     <% end %>
 
     <% unless @collection.numberItems.nil? %>
         <h2>This collection has <%= @collection.numberItems %> items</h2>
     <% end %>
 
-    <% unless @collection.items.size < 1 %>
-        <ul>
-            <% i = 0 %>
-            <% while @collection.items.size > i %>
+  <% @items=Collection.items(params[:id]) %>
+  <% unless @items.empty? %>
+      <% @items.each do |item| %>
                 <li>
-                    <%= link_to "#{@collection.items[i]['name']}", item_path(:id => "#{@collection.items[i]['id']}") %>
+                    <%= link_to "#{item['name']}", item_path(:id => "#{item['id']}") %>
                 </li>
-                <% i += 1 %>
             <% end %>
         </ul>
     <% end %>

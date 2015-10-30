@@ -2,7 +2,8 @@
 
     <div class="row">
         <div class="col-md-6">
-            <% if !@community.parentCommunity.nil? and @community.parentCommunity.size > 0%>
+            <% if !@community.parentCommunity.nil? %>
+             <% #and @community.parentCommunity.size > 0 %>
                 <p>Parent Communities</p>
                 <li><%= link_to "#{@community.parentCommunity['name']}", community_path(:id => "#{@community.parentCommunity['id']}")%></li>
             <% end %>
@@ -44,28 +45,26 @@
         <%= @community.sidebarText.html_safe %>
     <% end %>
 
-    <% unless @community.subcommunities.size < 1 %>
+  <% @subcommunities=Community.subcommunities(params[:id]) %>
+    <% unless @subcommunities.empty? %>
         <h2>Communities within this Community</h2>
         <ul>
-            <% i = 0 %>
-            <% while @community.subcommunities.size > i %>
+            <% @subcommunities.each do |subcommunity| %>
                 <li>
-                    <%= link_to "#{@community.subcommunities[i]['name']}", community_path(:id => "#{@community.subcommunities[i]['id']}") %>
+                    <%= link_to "#{subcommunity['name']}", community_path(:id => "#{subcommunity['id']}") %>
                 </li>
-                <% i += 1 %>
             <% end %>
         </ul>
     <% end %>
 
-    <% unless @community.collections.size < 1 %>
+    <% @collections=Community.collections(params[:id]) %>
+    <% unless @collections.empty? %>
         <h2>Collections within this Community</h2>
         <ul>
-            <% i = 0 %>
-            <% while @community.collections.size > i %>
+            <% @collections.each do |collection|%>
                 <li>
-                    <%= link_to "#{@community.collections[i]['name']}", collection_path(:id => "#{@community.collections[i]['id']}") %>
+                    <%= link_to "#{collection['name']}", collection_path(:id => "#{collection['id']}") %>
                 </li>
-                <% i += 1 %>
             <% end %>
         </ul>
     <% end %>
