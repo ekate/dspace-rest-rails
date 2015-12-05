@@ -34,6 +34,7 @@ gem 'rdoc'
 # Use rest-client to get json from REST API
 #gem 'rest_client'
 gem  'active_rest_client'
+gem 'simple_form', '~> 3.1.0.rc2'
 
 # Use JSON for json parsing from REST API
 gem 'json'

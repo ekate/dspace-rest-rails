@@ -70,5 +70,15 @@
     <% end %>
 
     <%= render partial: 'shared/data_foot' %>
+   <div>
+  <%= simple_form_for @community, :url=>destroy_url, :method => "delete" do |f| %>
+        <%= f.submit action_name="delete" %>
+        <%= f.hidden_field "id" %>
+  <% end %>
+  <%= simple_form_for @community, :url=>edit_community_url, :method => "post" do |f| %>
+  <%= f.submit action_name="edit" %>
+  <%= f.hidden_field "id" %>
+  <% end %>
+     </div>
 </div>
 

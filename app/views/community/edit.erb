@@ -1,0 +1,13 @@
+<h1>Edit Community</h1>
+
+<%= simple_form_for @community, :url=>update_path do |f| %>
+    <%= f.input_field "name"  %>
+    <%= f.hidden_field "id"  %>
+    <div class="class">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+</br>
+<%= link_to 'Show', @community %> |
+<%= link_to 'Back', community_path %>

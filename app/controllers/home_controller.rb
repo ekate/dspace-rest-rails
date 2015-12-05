@@ -25,20 +25,6 @@ class HomeController < ApplicationController
       @list += com['name'][0,10] + '">'
       @list += self.class.helpers.link_to(com['name'], community_path(:id => com['id']))
       @list += '</label><input type="checkbox" id="' + com['name'][0,10] + '"/>'
-
-
-      #recursion
-      #if $json_node['collections'].size >= 1 or !$json_node['collections'].nil? or !$json_node['subcommunities'].nil? or $json_node['subcommunities'].size >= 1
-       # @list += '<ol>'
-        #unless $json_node['collections'].size < 1 or $json_node['collections'].size < 1
-         # list_col($json_node['collections'])
-        #end
-
-        #unless $json_node['subcommunities'].nil? or $json_node['subcommunities'].size < 1
-         # get_index_list($json_node['subcommunities'])
-        #end
-        #@list += '</ol>'
-      #end
     end
     @list += '</li>'
   end

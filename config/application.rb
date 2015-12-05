@@ -24,6 +24,7 @@ end
 
 DspaceRestRuby::Application.configure do
   config.api_server_url = "https://localhost:8443/rest"
+  #config.api_server_url = "https://msdlib.home.nyu.edu/rest"
 
 
   ActiveRestClient::Base.faraday_config do |faraday|

@@ -7,10 +7,17 @@ DspaceRestRuby::Application.routes.draw do
   get '/contact', to: 'home#contact'
 
   resources :community
+  post :update, '/community/:id', to:'community#update'
+  post :create, '/community' ,  to:'community#create'
+  post :edit, '/community/:id/edit',  to:'community#edit'
+  delete :destroy, '/community/:id', to:'community#destroy'
+  post :update, '/community/:id', to:'community#update'
 
   resources :collection
 
   resources :item
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

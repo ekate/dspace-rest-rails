@@ -44,12 +44,14 @@
     <% if @item.withdrawn.equal?('y') %>
         <p>Item withdrawal status: Withdrawn</p>
     <% end %>
+    <% #$base_rest_url=Rails.application.config.api_server_url %>
+  <% $base_rest_url="https://msdlib.home.nyu.edu/rest" %>
     <% @bitstreams=Item.bitstreams(params[:id]) %>
         <% @bitstreams.each do |b|%>
             <div class="media">
-                <a class="pull-left" href=<%= $base_rest_url + "#{b['retrieveLink'].gsub('/rest', '')}" %>>
+                <a class="pull-left" href=<%= $base_rest_url + "#{b['retrieveLink'].gsub('//', '/')}" %>>
                     <% if b['mimeType'] == 'image/jpeg' %>
-                        <img class="media-object image-rounded" style="max-width: 400px;" src=<%= $base_rest_url + "#{b['retrieveLink'].gsub('/rest', '')}" %>/>
+                        <img class="media-object image-rounded" style="max-width: 400px;" src=<%= $base_rest_url + "#{b['retrieveLink'].gsub('/rest/', '')}" %>/>
                     <% elsif b['mimeType'] == 'application/pdf' %>
                         <img class="media-object image-rounded" src=<%= asset_path('pdf_file.gif') %>/>
                     <% elsif b['mimeType'] == 'text/plain' %>
@@ -64,7 +66,7 @@
                 </a>
                 <div class="media-heading">
 
-                    <b><%= link_to "#{b['name']}", $base_rest_url + "#{b['retrieveLink'].gsub('/rest', '')}" %></b>
+                    <b><%= link_to "#{b['name']}", $base_rest_url + "#{b['retrieveLink'].gsub('/rest/', '')}" %></b>
                 </div>
                 <div class="media-body">
                     <% if b['description'].to_s.size > 0 %>
