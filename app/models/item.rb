@@ -6,7 +6,7 @@ get :find, "/items/:id"
 get :metadata, "/items/:id/metadata"
 get :bitstreams, "/items/:id/bitstreams"
 get :subcommunities, "/communities/:id/communities"
-post :login , "/login/",  plain: true
+post :logins , "/logins/",  plain: true
 put :save, "/communities/:id"
 post :create, "/communities"
 end

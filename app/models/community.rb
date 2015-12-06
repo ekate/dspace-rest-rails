@@ -10,7 +10,7 @@ class Community <DspaceObject
   attr_reader :name, :shortDescription
 
   def model_name
-    @_model_name =self.name
+    @_model_name ="Community"
   end
 
   get :all, "/communities/"
@@ -21,6 +21,6 @@ class Community <DspaceObject
   put :save, "/communities/:id"
   delete :destroy, "/communities/:id"
   post :create, "/communities"
-  post :login , "/login/",  plain: true
+  post :logins , "/logins/",  plain: true
 
 end

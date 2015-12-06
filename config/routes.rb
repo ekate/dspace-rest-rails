@@ -1,5 +1,6 @@
 DspaceRestRuby::Application.routes.draw do
 
+  get "login/new"
   get '/communities', to: 'home#index'
 
   get '/about', to: 'home#about'
@@ -17,7 +18,7 @@ DspaceRestRuby::Application.routes.draw do
 
   resources :item
 
-
+  resources :login
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

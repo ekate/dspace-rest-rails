@@ -28,6 +28,7 @@ class CommunityController < HomeController
   end
 
   def destroy
+
     Community.destroy(params[:community])
       redirect_to communities_url, notice: 'community was successfully deleted.'
   end
