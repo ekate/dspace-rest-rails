@@ -1,22 +1,10 @@
 = dspace-rest-rails
-This is the first Ruby on Rails App I ever made. I used it to learn Ruby and Rails so it might not be the absolute best ways of doing things. It works well enough though and gave me experience working with lots of data and a Rest API.
+This application integrates Rails application, developed by Peter Dietz, with  active-rest-client. 
+https://github.com/whichdigital/active-rest-client
+Active Rest Client allows to access REST services in an ActiveRecord style. It can be used to create ActiveDspace gem similar to ActiveFedora, used by Hydra community.
+As a proof of concept I've created models for community, collection and item and implemented CRUD operations for community. I've also added basic Login form
 
-=== Things that may be of interests for collaborators
+* Ruby & Rails versions - Ruby 2.1.3, Rails 4.0.3
 
-* Ruby & Rails versions - Ruby 2.1.1, Rails 4.0.3
-
-* System info - I developed this using Jet-Brains IntelliJ IDEA 3.1 Utimate (though I added the appropriate .gitignore files)
-
-* Database - The app was made with mySQL database configuration. The postgres gem is installed for compatibility with heroku. Uses standard db:create, db:migrate etc.
-
-* Deployment - I've deployed the app to http://dspace-rails.herokuapp.com for an example of what it looks like.
-
-Note: The root of the app takes ~7s to load because of an external dspace SQL query issue and is not because of the app itself. (I've added caching of that page for improved performance)
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-=== To contribute:
-
-1. create a fork
-2. clone the fork    
-3. make your changes
-4. push to your branch
-5. submit a pull request
+* Database - not required
+ 
