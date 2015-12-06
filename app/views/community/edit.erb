@@ -1,8 +1,10 @@
 <h1>Edit Community</h1>
 
 <%= simple_form_for @community, :url=>update_path do |f| %>
-    <%= f.input_field "name"  %>
+    <% value= @community.send("name") %>
+    <%= f.input_field "name",  label: "Name",  input_html: {name: "community[name]", value: value, id: "community_name" } %>
     <%= f.hidden_field "id"  %>
+    </br>
     <div class="class">
       <%= f.submit %>
     </div>

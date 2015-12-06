@@ -7,7 +7,7 @@ class Community <DspaceObject
     false
   end
 
-  attr_reader :name, :shortDescription
+  attr_reader :community_name, :shortDescription
 
   def model_name
     @_model_name ="Community"
